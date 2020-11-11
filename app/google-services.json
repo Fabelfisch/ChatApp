@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "620471737540",
+    "firebase_url": "https://chatapp-3ce15.firebaseio.com",
+    "project_id": "chatapp-3ce15",
+    "storage_bucket": "chatapp-3ce15.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:620471737540:android:a70654694318d2c705fd91",
+        "android_client_info": {
+          "package_name": "com.stuberf.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "620471737540-8afokku5pq89itv44vhg3cbddpfe1c4u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1CaTvdY98BAo6sTRUMkZXxqYWWVk7Xfw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "620471737540-8afokku5pq89itv44vhg3cbddpfe1c4u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
