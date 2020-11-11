@@ -87,15 +87,15 @@ public class ChangeImageActivity extends AppCompatActivity {
             }
 
         });
-        //final Uri uri = getImageUriFromBitmap(selectedImage);
+        final Uri uri = getImageUriFromBitmap(selectedImage);
         storageReference.child("Profile Images").child(firebaseAuth.getCurrentUser().getEmail() +".jpg").putFile(imageData).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                String downloadUrl = imageData.toString();
+                //String downloadUrl = imageData.toString();
 
-                user[0].setBitmapLink(downloadUrl);
+                user[0].setBitmapLink(uri.toString());
 
-                firebaseFirestore.collection("Users").document(firebaseUser.getEmail()).update("bitmapLink", downloadUrl).addOnSuccessListener(new OnSuccessListener() {
+                firebaseFirestore.collection("Users").document(firebaseUser.getEmail()).update("bitmapLink", uri.toString()).addOnSuccessListener(new OnSuccessListener() {
                     @Override
                     public void onSuccess(Object o) {
                         Intent intent = new Intent(ChangeImageActivity.this, ProfileActivity.class);
