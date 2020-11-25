@@ -61,14 +61,14 @@ public class LoginActivity extends AppCompatActivity {
         final Button loginButton = findViewById(R.id.signInButton);
         final Button registerButton = findViewById(R.id.signUpButton);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
-/*
+
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
         if(firebaseUser != null) {
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
         }
-*/
+
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
             public void onChanged(@Nullable LoginFormState loginFormState) {

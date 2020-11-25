@@ -70,7 +70,7 @@ public class ProfileActivity extends AppCompatActivity {
                     HashMap<String, Object> data = (HashMap<String, Object>) snapshot.getData();
 
                     User user = new User(data);
-                    Target target = new Target() {
+                    /*Target target = new Target() {
                         @Override
                         public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
                             imageView.setImageBitmap(bitmap);
@@ -84,7 +84,7 @@ public class ProfileActivity extends AppCompatActivity {
                         public void onPrepareLoad(Drawable placeHolderDrawable) {
                         }
                     };
-                    Picasso.get().load(user.getBitmapLink()).into(target);
+                    Picasso.get().load(user.getBitmapLink()).into(target);*/
                     nameTextView.setText(user.getName());
                     statusTextView.setText(user.getStatus());
                     visibilityCheckBox.setChecked(user.getVisible().equals("yes"));

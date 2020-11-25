@@ -74,17 +74,29 @@ public class AddContactActivity extends AppCompatActivity {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 if(value.exists()){
-                    HashMap<String, Object> map = new HashMap<String, Object>();
-                    firebaseFirestore.collection("Users").document(firebaseUser.getEmail()).collection("Contacts").document(email.getText().toString()).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    final HashMap<String, Object> map = new HashMap<String, Object>();
+                    final DocumentReference contact = firebaseFirestore.collection("Users").document(firebaseUser.getEmail()).collection("Contacts").document(email.getText().toString());
+                    contact.addSnapshotListener(new EventListener<DocumentSnapshot>() {
                         @Override
-                        public void onSuccess(Void aVoid) {
-                            Toast.makeText(AddContactActivity.this, "Contact added!", Toast.LENGTH_LONG).show();
-                            startActivity(new Intent(AddContactActivity.this, MainActivity.class));
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(AddContactActivity.this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                        public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                            if(!value.exists()){
+                                contact.set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        Toast.makeText(AddContactActivity.this, "Contact added!", Toast.LENGTH_LONG).show();
+                                        startActivity(new Intent(AddContactActivity.this, MainActivity.class));
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(AddContactActivity.this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                                    }
+                                });
+
+                            }
+                            else {
+                                Toast.makeText(AddContactActivity.this, "This user is already a contact of yours!", Toast.LENGTH_LONG).show();
+                            }
                         }
                     });
                 }

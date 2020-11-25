@@ -13,12 +13,15 @@
         android:onClick="addChat"
         android:text="+"
         android:textSize="36sp"
-        app:layout_constraintEnd_toStartOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/mainRecycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addChatButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>
