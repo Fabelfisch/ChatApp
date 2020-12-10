@@ -18,20 +18,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/avatar" />
 
-    <Button
-        android:id="@+id/buttonBack"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#0F1010"
-        android:backgroundTint="#2196F3"
-        android:onClick="backClicked"
-        android:text="Back"
-        android:textColor="#090707"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/textViewName"
         android:layout_width="wrap_content"

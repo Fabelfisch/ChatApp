@@ -1,14 +1,5 @@
 package com.stuberf.chatapp;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.provider.MediaStore;
-
-import com.stuberf.chatapp.MainActivity;
-import com.stuberf.chatapp.R;
-import com.stuberf.chatapp.Singleton;
-import com.stuberf.chatapp.ui.login.LoginActivity;
-
 import java.util.HashMap;
 
 public class User {
@@ -47,31 +38,16 @@ public class User {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public String getBitmapLink() {
         return bitmapLink;
-    }
-
-    public void setBitmapLink(String bitmapLink) {
-        this.bitmapLink = bitmapLink;
     }
 
     public String getVisible() {
         return visible;
     }
 
-    public void setVisible(String visible) {
-        this.visible = visible;
-    }
-
     public String getMail() {
         return mail;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
 }

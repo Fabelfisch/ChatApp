@@ -39,12 +39,26 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter<ChatRecyclerAdapte
         firebaseFirestore = FirebaseFirestore.getInstance();
         this.listener = listener;
     }
-    @NonNull
+    @Override
+    public int getItemViewType(int position){
+        if (chats.get(position).get("unread").toString().equals("0")) {
+            return 1;
+        }
 
+        return 2;
+    }
+
+    @NonNull
     @Override
     public MenuItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate( R.layout.recycler_row, parent, false);
+        View view;
+        if(viewType == 1){
+            view = layoutInflater.inflate(R.layout.recycler_row, parent, false);
+        }
+        else{
+            view = layoutInflater.inflate(R.layout.recycler_row_new, parent, false);
+        }
         return new MenuItemHolder(view);
     }
 
@@ -53,8 +67,7 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter<ChatRecyclerAdapte
         this.holder = holder;
         this.position = position;
 
-        // We set the texts and the image of our MenuItemHolder object
-        final String id = chats.get(position).get("chatId").toString();
+        // Set the texts and the image of MenuItemHolder object
         if(chats.get(position).get("user").toString().equals("Error loading user!")){
             holder.nameText.setText("");
             holder.statusText.setText("");
@@ -91,7 +104,9 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter<ChatRecyclerAdapte
                             holder.emailText.setText(user.getMail());
                             holder.statusText.setText(user.getStatus());
                             //Picasso.get().load(user.getBitmapLink()).into(target);
-                        } else {
+                        }
+                        //when the user has set the visibility to false, the other users can't see his info, only the username
+                        else {
                             holder.nameText.setText("");
                             holder.statusText.setText("");
                             holder.emailText.setTextSize(20);
@@ -109,11 +124,7 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter<ChatRecyclerAdapte
         return chats.size();
     }
 
-    /*
-        "A ViewHolder describes an item view and metadata about its place within the RecyclerView."
 
-        https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.ViewHolder
-     */
     class MenuItemHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         ImageView imageView;
         TextView nameText, emailText, statusText;

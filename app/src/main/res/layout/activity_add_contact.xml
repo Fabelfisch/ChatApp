@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:hint="Email"
+        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/textView" />
@@ -38,17 +39,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-    <Button
-        android:id="@+id/buttonBackContact"
-        style="@style/Widget.AppCompat.Button"
+
+    <ProgressBar
+        android:id="@+id/progressBarContact"
+        style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#0F1010"
-        android:backgroundTint="#2196F3"
-        android:onClick="backClicked"
-        android:text="Back"
-        android:textColor="#090707"
-        android:textSize="24sp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="100dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/addContactButton"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/contactEmail_editText" />
 </androidx.constraintlayout.widget.ConstraintLayout>

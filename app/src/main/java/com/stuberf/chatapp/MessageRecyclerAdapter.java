@@ -29,9 +29,10 @@ public class MessageRecyclerAdapter extends RecyclerView.Adapter<MessageRecycler
     @Override
     public int getItemViewType(int position) {
         //if message userId matches current userid, set view type 1 else set view type 2
-        if(userId.equals(new Message(messages.get(position)).getMessageUserId())){
+        if (userId.equals(new Message(messages.get(position)).getMessageUserId())) {
             return MESSAGE_OUT_VIEW_TYPE;
         }
+
         return MESSAGE_IN_VIEW_TYPE;
     }
 
@@ -55,18 +56,17 @@ public class MessageRecyclerAdapter extends RecyclerView.Adapter<MessageRecycler
 
     public void onBindViewHolder(@NonNull MessageItemHolder holder, int position) {
         //Bind values from Message to the viewHolder
-
         Message message = new Message(messages.get(position));
         holder.mText.setText(message.getMessageText());
         holder.mTime.setText(DateFormat.format("dd MMM  (h:mm a)", message.getMessageTime()));
-        if(userId.equals(message.getMessageUserId())){
+        if (userId.equals(message.getMessageUserId())) {
             holder.layout.setBackgroundResource(R.drawable.box_ui);
             holder.mUser.setText("you");
-        }
-        else {
+        } else {
             holder.layout.setBackgroundResource(R.drawable.box_ui_in);
             holder.mUser.setText(message.getMessageUserId());
         }
+
     }
 
     @Override

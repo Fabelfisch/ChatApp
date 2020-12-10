@@ -42,7 +42,7 @@ public class ChatAddRecyclerAdapter extends RecyclerView.Adapter<ChatAddRecycler
     @Override
     public void onBindViewHolder(@NonNull final MenuItemHolder holder, final int position) {
 
-        // We set the texts and the image of our MenuItemHolder object
+        // Set the texts and the image of MenuItemHolder object
         final String email = contacts.get(position);
         DocumentReference documentReference = firebaseFirestore.collection("Users").document(email);
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
@@ -91,11 +91,7 @@ public class ChatAddRecyclerAdapter extends RecyclerView.Adapter<ChatAddRecycler
         return contacts.size();
     }
 
-    /*
-        "A ViewHolder describes an item view and metadata about its place within the RecyclerView."
 
-        https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.ViewHolder
-     */
     class MenuItemHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         ImageView imageView;
         TextView nameText, emailText, statusText;

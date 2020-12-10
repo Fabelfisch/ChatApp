@@ -12,19 +12,16 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.stuberf.chatapp.ChangeImageActivity;
 import com.stuberf.chatapp.ChangeNameActivity;
 import com.stuberf.chatapp.ChangeStatusActivity;
@@ -51,14 +48,16 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        //initialize variables
         imageView = findViewById(R.id.imageView);
         nameTextView = findViewById(R.id.textViewName);
         statusTextView = findViewById(R.id.textViewStatus);
-        buttonBack = findViewById(R.id.buttonBack);
         visibilityCheckBox = findViewById(R.id.checkBoxVisibility);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
         final FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+
+        //get User data from database
         DocumentReference documentReference = firebaseFirestore.collection("Users").document(firebaseUser.getEmail());
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
@@ -93,14 +92,15 @@ public class ProfileActivity extends AppCompatActivity {
 
         });
 
-        imageView.setOnClickListener(new View.OnClickListener() {
+        //enable change of attributes
+        /*imageView.setOnClickListener(new View.OnClickListener() {
                                          @Override
                                          public void onClick(View v) {
                                              Intent intent = new Intent(ProfileActivity.this, ChangeImageActivity.class);
                                              startActivity(intent);
                                          }
                                      }
-        );
+        );*/
         statusTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,9 +128,16 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
-    public void backClicked(View view){
-        Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
-        startActivity(intent);
+    //Override of standard back pressed function such that the Main activity gets restarted
+    @Override
+    public void onBackPressed(){
+        if(nameTextView.getText().toString().equals("No name set")){
+            Toast.makeText(ProfileActivity.this, "You have to insert your name!", Toast.LENGTH_LONG).show();
+        }
+        else {
+            Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+            startActivity(intent);
+        }
     }
 
 }

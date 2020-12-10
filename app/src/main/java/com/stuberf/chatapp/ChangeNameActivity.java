@@ -41,12 +41,14 @@ public class ChangeNameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_name);
 
+        //Initialize variables
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
         editText = findViewById(R.id.changeName_editText);
         saveButton = findViewById(R.id.saveNameButton);
 
+        //get current name from user in Database
         firebaseFirestore.collection("Users").document(firebaseUser.getEmail()).addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot snapshot, @Nullable FirebaseFirestoreException error) {
@@ -61,6 +63,7 @@ public class ChangeNameActivity extends AppCompatActivity {
         });
     }
 
+    //save the new Name when the save button is pressed
     public void saveName(View view) {
         firebaseFirestore.collection("Users").document(firebaseUser.getEmail()).update("name", editText.getText().toString()).addOnSuccessListener(new OnSuccessListener() {
             @Override
