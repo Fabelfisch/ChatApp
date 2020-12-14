@@ -1,3 +1,5 @@
+//A Singleton class, would have been used to store the images
+// in the Firebase storage. Allows just object of this class to exist at a time
 package com.stuberf.chatapp;
 
 import android.graphics.Bitmap;

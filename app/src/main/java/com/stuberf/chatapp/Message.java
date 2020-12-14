@@ -1,3 +1,4 @@
+//This is the message class. Messages are locally handled as this class
 package com.stuberf.chatapp;
 
 import androidx.annotation.NonNull;

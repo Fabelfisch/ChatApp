@@ -1,3 +1,4 @@
+//This is the user class. Users are locally handled as this class
 package com.stuberf.chatapp;
 
 import java.util.HashMap;

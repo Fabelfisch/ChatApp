@@ -1,3 +1,5 @@
+//In the change image activity, the user should have been able
+// to change his profile image, but this activity is not used in the end
 package com.stuberf.chatapp;
 
 import android.Manifest;

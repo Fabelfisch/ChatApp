@@ -1,3 +1,4 @@
+//In this activity, the user sees all his chats and can enter them by clicking on it
 package com.stuberf.chatapp;
 
 import androidx.annotation.NonNull;

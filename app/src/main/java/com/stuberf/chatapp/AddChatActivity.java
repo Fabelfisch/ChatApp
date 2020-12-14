@@ -1,3 +1,4 @@
+//In the add chat activity, the user can add a chat to his list
 package com.stuberf.chatapp;
 
 import androidx.annotation.NonNull;

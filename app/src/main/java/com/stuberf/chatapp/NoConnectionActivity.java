@@ -1,3 +1,4 @@
+//this activity gets called whenever there is no internet connection and just displays this info
 package com.stuberf.chatapp;
 //haveNetwork function from https://www.tutorialspoint.com/how-to-check-internet-connection-availability-on-android
 import androidx.appcompat.app.AppCompatActivity;

@@ -1,3 +1,4 @@
+//In the profile a user can modify his profile
 package com.stuberf.chatapp.ui.login;
 
 import androidx.annotation.Nullable;

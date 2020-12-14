@@ -1,3 +1,4 @@
+//This is the recycler adapter to display all messages in the chat activity
 package com.stuberf.chatapp;
 //Recycler class based on https://medium.com/@mendhieemmanuel/building-real-time-android-chatroom-with-firebase-99a5b51cb4f7
 

@@ -1,3 +1,4 @@
+//in the add contact activity the user can add an other user as contact
 package com.stuberf.chatapp;
 
 import androidx.annotation.NonNull;

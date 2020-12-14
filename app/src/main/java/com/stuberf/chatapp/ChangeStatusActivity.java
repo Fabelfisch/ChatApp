@@ -1,3 +1,4 @@
+//In the change status activity, the user is able to change his name
 package com.stuberf.chatapp;
 
 import android.content.Intent;

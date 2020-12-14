@@ -1,3 +1,4 @@
+//This is the recycler adapter to display all chats in the add main activity
 package com.stuberf.chatapp;
 
 import android.content.Intent;

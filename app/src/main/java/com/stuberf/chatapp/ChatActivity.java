@@ -1,3 +1,5 @@
+//In the chat activity, the chat interface is implemented,
+// where the user can type and send messages
 package com.stuberf.chatapp;
 
 import android.content.Intent;

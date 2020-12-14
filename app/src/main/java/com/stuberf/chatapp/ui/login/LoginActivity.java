@@ -1,3 +1,4 @@
+//Login Activity enables user to either sign in or sign up
 package com.stuberf.chatapp.ui.login;
 //haveNetwork function from https://www.tutorialspoint.com/how-to-check-internet-connection-availability-on-android
 

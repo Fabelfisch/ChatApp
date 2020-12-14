@@ -1,3 +1,4 @@
+//This is the recycler adapter to display all contacts in the add chat activity
 package com.stuberf.chatapp;
 
 import android.view.LayoutInflater;
